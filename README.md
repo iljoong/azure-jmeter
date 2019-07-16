@@ -1,6 +1,6 @@
-# Terraform for Distributed Jmeter Setup  
+# Terraform for Distributed JMeter Setup  
 
-## Jmeter Test Environment in Azure
+## JMeter Test Environment in Azure
 
 ![architecture](./env_jmeter.png)
 
@@ -8,7 +8,7 @@
 
 Update variables, such as `subscription_id`, `location`, `rgname` and etc in `variables.tf`.
 
-> Note that this terraform scirpt will be provisioned on existing environment. You may also need to create a new [service principal](https://docs.microsoft.com/en-us/azure/active-directory/develop/howto-create-service-principal-portal) for managing resources.
+> Note that this terraform script will be provisioned on existing environment. You may also need to create a new [service principal](https://docs.microsoft.com/en-us/azure/active-directory/develop/howto-create-service-principal-portal) for managing resources.
 
 ## Run Terraform
 
@@ -19,4 +19,4 @@ terraform apply
 
 ## Config Master and Agents
 
-Pleae refer [Doc.md](./Doc.md) for more information.
+Please refer [CONFIG.md](./CONFIG.md) for more information.

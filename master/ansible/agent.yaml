@@ -10,11 +10,19 @@
     JVM_ARGS: -Xms1g -Xmx1g -XX:MaxMetaspaceSize=256m
 
   tasks:
-   - name: user.properties copy
-     template: src=/home/apache-jmeter-5.1.1/bin/user.properties dest=/home/apache-jmeter-5.1.1/bin/user.properties
+   - name: jmeter.properties copy
+     copy: src=/home/apache-jmeter-5.1.1/bin/jmeter.properties dest=/home/apache-jmeter-5.1.1/bin/jmeter.properties
+
+    - name: user.properties copy
+     copy: src=/home/apache-jmeter-5.1.1/bin/user.properties dest=/home/apache-jmeter-5.1.1/bin/user.properties
 
    - name: rmi_keystore.jks copy
-     template: src=/home/apache-jmeter-5.1.1/bin/rmi_keystore.jks dest=/home/apache-jmeter-5.1.1/bin/rmi_keystore.jks
+     copy: src=/home/apache-jmeter-5.1.1/bin/rmi_keystore.jks dest=/home/apache-jmeter-5.1.1/bin/rmi_keystore.jks
+
+   - name: copy plugins
+     copy: src={{ item }}  dest=/home/apache-jmeter-5.1.1/lib/ext
+     with_fileglob:
+     - /home/apache-jmeter-5.1.1/lib/ext/jmeter-plugins-*.jar
 
    - name: run jmeter-server
      shell: nohup /home/apache-jmeter-5.1.1/bin/jmeter-server < /dev/null > /dev/null 2>&1 &

@@ -2,7 +2,9 @@
 sudo apt -y install xfce4 xrdp
 sudo systemctl enable xrdp
 echo xfce4-session >~/.xsession
-sudo service xrdp restart
+sudo service xrdp restartech
+
+#sudo apt install -y xfce4-goodies chromium-browser
 
 # sudo netstat -plnt | grep rdp
 
